@@ -1,0 +1,9 @@
+.dialog {
+    color: black;
+    margin-top: 15px;
+}
+
+.dialog .img {
+    width: 45px;
+    border-radius: 30px;
+}

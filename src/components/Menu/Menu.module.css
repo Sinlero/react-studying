@@ -1,0 +1,13 @@
+.nav {
+    grid-area: n;
+    background-color: white;
+    padding: 10px;
+}
+
+.dialog a {
+    text-decoration: none;
+}
+
+.dialog a.active {
+    color: goldenrod;
+}
