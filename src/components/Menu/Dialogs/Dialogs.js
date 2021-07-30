@@ -1,6 +1,7 @@
 import style from "./Dialogs.module.css"
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogsItem";
+import MessageBox from "./MessageBox/MessageBox";
 
 function Dialogs(props) {
 
@@ -14,6 +15,7 @@ function Dialogs(props) {
             </div>
             <div className={style.messages}>
                 {messagesElements}
+                <MessageBox/>
             </div>
         </div>
     );
