@@ -9,7 +9,8 @@ function Posts(props) {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text)}
+        props.addPost(text);
+        }
 
     return (
         <div className={style.content}>
@@ -17,7 +18,7 @@ function Posts(props) {
             <div>
                 <h2>New post</h2>
                 <div className={style.createPost}>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref={ newPostElement }></textarea>
                 </div>
                 <div>
                     <button onClick={ addPost }>Add post</button>
