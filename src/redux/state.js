@@ -2,6 +2,7 @@ import andreyAvatar from "../avatars/avatar1.jpg"
 import artemAvatar from "../avatars/avatar2.jpg"
 import alexeyAvatar from "../avatars/avatar3.jpg"
 import antonAvatar from "../avatars/avatar4.jpg"
+import {rerenderEntireTree} from "../render";
 
 let state = {
     profilePage: {
@@ -34,6 +35,7 @@ export let addPost = (postMsg) => {
         likes: 0
     };
     state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
 }
 
 export default state;
