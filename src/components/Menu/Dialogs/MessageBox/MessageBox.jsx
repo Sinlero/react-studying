@@ -6,13 +6,18 @@ function MessageBox(props) {
     let messageElement = React.createRef();
 
     let sendMessage = () => {
+        props.sendMsg();
+        props.changeText("");
+    }
+
+    let changeText = () => {
         let text = messageElement.current.value;
-        alert(text);
+        props.changeText(text);
     }
 
     return (
       <div className={style.box}>
-          <textarea ref={messageElement}></textarea>
+          <textarea onChange={changeText} ref={messageElement} value={props.defaultText}></textarea>
           <button onClick={sendMessage}>Send</button>
       </div>
     );
