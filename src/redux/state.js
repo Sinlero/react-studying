@@ -10,7 +10,8 @@ let state = {
             {id: 1, message: "Hello React", name: "Andrey", likes: 5},
             {id: 2, message: "Studying props", name: "Andrey", likes: 59},
             {id: 3, message: "Nice!!! All works", name: "Andrey", likes: 233}
-        ]
+        ],
+        newPostText: ""
     },
     dialogsPage: {
         dialogsData: [
@@ -24,17 +25,37 @@ let state = {
             {id: 2, message: "of"},
             {id: 3, message: "JavaScript"},
             {id: 4, message: "Objects"},
-        ]
+        ],
+        newMessageText: ""
     }
 }
 
-export let addPost = (postMsg) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMsg,
+        message: state.profilePage.newPostText,
         likes: 0
     };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = "";
+    rerenderEntireTree(state);
+}
+
+export let changeNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export let sendMessage = () => {
+    let newMsg = {
+        id: 5,
+        message: state.dialogsPage.newMessageText
+    };
+    state.dialogsPage.messagesData.push(newMsg);
+}
+
+export let changeNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
 
