@@ -1,9 +1,13 @@
-.dialog {
+.post {
     color: black;
     margin-top: 15px;
 }
 
-.dialog .img {
+.post .img {
     width: 45px;
     border-radius: 30px;
+}
+
+.like {
+    padding-top: 5px;
 }
