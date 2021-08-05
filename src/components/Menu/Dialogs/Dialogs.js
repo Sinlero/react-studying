@@ -15,7 +15,7 @@ function Dialogs(props) {
             </div>
             <div className={style.messages}>
                 {messagesElements}
-                <MessageBox/>
+                <MessageBox sendMsg={props.sendMsg} changeText={props.changeMsgText} defaultText={props.state.newMessageText}/>
             </div>
         </div>
     );

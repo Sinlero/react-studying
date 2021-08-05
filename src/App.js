@@ -16,14 +16,17 @@ function App(props) {
                 <Menu friends={props.state.dialogsPage.dialogsData}/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
-                           render={ () => <Dialogs state={props.state.dialogsPage}/> }/>
+                           render={() => <Dialogs state={props.state.dialogsPage}
+                                                  sendMsg={props.sendMessage}
+                                                  changeMsgText={props.changeMsgText}/>}/>
                     <Route path="/profile"
-                           render={ () => <Profile
+                           render={() => <Profile
                                state={props.state.profilePage}
-                               addPost={props.addPost}/> }/>
-                    <Route path="/news" render={ () => <News/> }/>
-                    <Route path="/music" render={ () => <Music/> }/>
-                    <Route path="/settings" render={ () => <Settings/> }/>
+                               addPost={props.addPost}
+                               changePostText={props.changeText}/>}/>
+                    <Route path="/news" render={() => <News/>}/>
+                    <Route path="/music" render={() => <Music/>}/>
+                    <Route path="/settings" render={() => <Settings/>}/>
                 </div>
             </div>
         </BrowserRouter>
