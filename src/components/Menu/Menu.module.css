@@ -4,10 +4,10 @@
     padding: 10px;
 }
 
-.dialog a {
+.post a {
     text-decoration: none;
 }
 
-.dialog a.active {
+.post a.active {
     color: goldenrod;
 }
