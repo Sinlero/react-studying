@@ -2,7 +2,10 @@ import andreyAvatar from "../avatars/avatar1.jpg"
 import artemAvatar from "../avatars/avatar2.jpg"
 import alexeyAvatar from "../avatars/avatar3.jpg"
 import antonAvatar from "../avatars/avatar4.jpg"
-import {rerenderEntireTree} from "../render";
+
+let rerenderEntireTree = () => {
+    console.log("state was changed");
+}
 
 let state = {
     profilePage: {
@@ -30,7 +33,7 @@ let state = {
     }
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -41,12 +44,12 @@ export let addPost = () => {
     rerenderEntireTree(state);
 }
 
-export let changeNewPostText = (newText) => {
+export const changeNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 }
 
-export let sendMessage = () => {
+export const sendMessage = () => {
     let newMsg = {
         id: 5,
         message: state.dialogsPage.newMessageText
@@ -54,9 +57,13 @@ export let sendMessage = () => {
     state.dialogsPage.messagesData.push(newMsg);
 }
 
-export let changeNewMessageText = (newText) => {
+export const changeNewMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
