@@ -6,9 +6,8 @@ function Profile(props) {
         <div>
             <ProfileInfo/>
             <Posts posts={props.state.postsData}
-                   addPost={props.addPost}
                    newPostText={props.state.newPostText}
-                   changePostText={props.changePostText}/>
+                   dispatch={props.dispatch}/>
         </div>
     )
 }
