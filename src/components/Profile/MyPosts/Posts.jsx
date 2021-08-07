@@ -8,12 +8,13 @@ function Posts(props) {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: "ADD-POST"});
     };
 
     let onChange = () => {
         let text = newPostElement.current.value;
-        props.changePostText(text);
+        let action = {type: "CHANGE-NEW-POST-TEXT", newText: text};
+        props.dispatch(action);
     };
 
     return (

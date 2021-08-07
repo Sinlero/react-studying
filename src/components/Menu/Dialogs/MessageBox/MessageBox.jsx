@@ -6,13 +6,12 @@ function MessageBox(props) {
     let messageElement = React.createRef();
 
     let sendMessage = () => {
-        props.sendMsg();
-        props.changeText("");
+        props.dispatch({type: "SEND-MESSAGE"});
     }
 
     let changeText = () => {
         let text = messageElement.current.value;
-        props.changeText(text);
+        props.dispatch({type: "CHANGE-NEW-MESSAGE-TEXT", newText: text});
     }
 
     return (
