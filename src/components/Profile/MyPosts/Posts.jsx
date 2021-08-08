@@ -23,7 +23,7 @@ function Posts(props) {
             <div>
                 <h2>New post</h2>
                 <div className={style.createPost}>
-                    <textarea onChange={onChange} value={props.newPostText}></textarea>
+                    <textarea onChange={onChange} value={props.newPostText} placeholder="Enter you post text"></textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

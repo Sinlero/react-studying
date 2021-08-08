@@ -15,7 +15,7 @@ function MessageBox(props) {
 
     return (
       <div className={style.box}>
-          <textarea onChange={changeText} value={props.defaultText}></textarea>
+          <textarea onChange={changeText} value={props.defaultText} placeholder="Enter you message"></textarea>
           <button onClick={sendMessage}>Send</button>
       </div>
     );
