@@ -5,16 +5,15 @@ import {addPostActionCreator, changeNewPostTextActionCreator} from "../../../red
 
 
 function Posts(props) {
-    let PostsElements = props.posts.map(post => <Post text={post.message} name={post.name} likes={post.likes}/>);
 
-    let newPostElement = React.createRef();
+    let PostsElements = props.posts.map(post => <Post text={post.message} name={post.name} likes={post.likes}/>);
 
     let addPost = () => {
         props.dispatch(addPostActionCreator());
     };
 
-    let onChange = () => {
-        let text = newPostElement.current.value;
+    let onChange = (event) => {
+        let text = event.target.value;
         props.dispatch(changeNewPostTextActionCreator(text));
     };
 
@@ -24,7 +23,7 @@ function Posts(props) {
             <div>
                 <h2>New post</h2>
                 <div className={style.createPost}>
-                    <textarea onChange={onChange} ref={newPostElement} value={props.newPostText}></textarea>
+                    <textarea onChange={onChange} value={props.newPostText}></textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

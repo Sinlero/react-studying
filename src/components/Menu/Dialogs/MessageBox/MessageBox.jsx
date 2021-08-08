@@ -4,20 +4,18 @@ import {changeNewMessageTextActionCreator, sendMessageActionCreator} from "../..
 
 function MessageBox(props) {
 
-    let messageElement = React.createRef();
-
     let sendMessage = () => {
         props.dispatch(sendMessageActionCreator());
     }
 
-    let changeText = () => {
-        let text = messageElement.current.value;
+    let changeText = (event) => {
+        let text = event.target.value;
         props.dispatch(changeNewMessageTextActionCreator(text));
     }
 
     return (
       <div className={style.box}>
-          <textarea onChange={changeText} ref={messageElement} value={props.defaultText}></textarea>
+          <textarea onChange={changeText} value={props.defaultText}></textarea>
           <button onClick={sendMessage}>Send</button>
       </div>
     );
