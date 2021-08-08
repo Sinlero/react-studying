@@ -1,6 +1,6 @@
 import style from "./MessageBox.module.css"
 import React from "react";
-import {changeNewMessageTextActionCreator, sendMessageActionCreator} from "../../../../redux/state";
+import {changeNewMessageTextActionCreator, sendMessageActionCreator} from "../../../../redux/dialogsReducer";
 
 function MessageBox(props) {
 
