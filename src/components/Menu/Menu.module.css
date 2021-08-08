@@ -4,10 +4,12 @@
     padding: 10px;
 }
 
-.post a {
-    text-decoration: none;
+.link a {
+    color: #2496ed;
+    text-decoration-line: none;
 }
 
-.post a.active {
-    color: goldenrod;
+.link a.active {
+    color: blue;
+    text-decoration-line: underline;
 }
