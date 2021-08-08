@@ -1,17 +1,18 @@
 import style from "./MessageBox.module.css"
 import React from "react";
+import {changeNewMessageTextActionCreator, sendMessageActionCreator} from "../../../../redux/state";
 
 function MessageBox(props) {
 
     let messageElement = React.createRef();
 
     let sendMessage = () => {
-        props.dispatch({type: "SEND-MESSAGE"});
+        props.dispatch(sendMessageActionCreator());
     }
 
     let changeText = () => {
         let text = messageElement.current.value;
-        props.dispatch({type: "CHANGE-NEW-MESSAGE-TEXT", newText: text});
+        props.dispatch(changeNewMessageTextActionCreator(text));
     }
 
     return (
