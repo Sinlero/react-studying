@@ -3,6 +3,11 @@ import artemAvatar from "../avatars/avatar2.jpg"
 import alexeyAvatar from "../avatars/avatar3.jpg"
 import antonAvatar from "../avatars/avatar4.jpg"
 
+const ADD_POST = "ADD-POST";
+const CHANGE_NEW_POST_TEXT = "CHANGE-NEW-POST-TEXT";
+const SEND_MESSAGE = "SEND-MESSAGE";
+const CHANGE_NEW_MESSAGE_TEXT = "CHANGE-NEW-MESSAGE-TEXT";
+
 let store = {
     _state: {
         profilePage: {
@@ -41,7 +46,7 @@ let store = {
 
     dispatch(action) {
         switch (action.type) {
-            case "ADD-POST":
+            case ADD_POST:
                 let newPost = {
                     id: 5,
                     name: "Admin",
@@ -52,11 +57,11 @@ let store = {
                 this._state.profilePage.newPostText = "";
                 this._callSubscriber(this._state);
                 break;
-            case "CHANGE-NEW-POST-TEXT":
+            case CHANGE_NEW_POST_TEXT:
                 this._state.profilePage.newPostText = action.newText;
                 this._callSubscriber(this._state);
                 break;
-            case "SEND-MESSAGE":
+            case SEND_MESSAGE:
                 let newMsg = {
                     id: 5,
                     message: this._state.dialogsPage.newMessageText
@@ -65,7 +70,7 @@ let store = {
                 this._state.dialogsPage.newMessageText = "";
                 this._callSubscriber(this._state);
                 break;
-            case "CHANGE-NEW-MESSAGE-TEXT":
+            case CHANGE_NEW_MESSAGE_TEXT:
                 this._state.dialogsPage.newMessageText = action.newText;
                 this._callSubscriber(this._state);
                 break;
@@ -74,6 +79,32 @@ let store = {
         }
     }
 };
+
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const changeNewPostTextActionCreator = (text) => {
+    return {
+        type: CHANGE_NEW_POST_TEXT,
+        newText: text
+    }
+}
+
+export const sendMessageActionCreator = () => {
+    return {
+        type: SEND_MESSAGE
+    }
+}
+
+export const changeNewMessageTextActionCreator = (text) => {
+    return {
+        type: CHANGE_NEW_MESSAGE_TEXT,
+        newText: text
+    }
+}
 
 export default store;
 window.store = store;
