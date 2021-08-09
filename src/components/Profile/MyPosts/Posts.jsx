@@ -6,7 +6,8 @@ import {addPostActionCreator, changeNewPostTextActionCreator} from "../../../red
 
 function Posts(props) {
 
-    let PostsElements = props.posts.map(post => <Post text={post.message} name={post.name} likes={post.likes}/>);
+    let PostsElements = props.posts.map(post => <Post id={post.id} text={post.message} name={post.name} likes={post.likes}
+                                                      dispatch={props.dispatch}/>);
 
     let addPost = () => {
         props.dispatch(addPostActionCreator());
@@ -23,7 +24,8 @@ function Posts(props) {
             <div>
                 <h2>New post</h2>
                 <div className={style.createPost}>
-                    <textarea onChange={onChange} value={props.newPostText} placeholder="Enter you post text"></textarea>
+                    <textarea onChange={onChange} value={props.newPostText}
+                              placeholder="Enter you post text"></textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
