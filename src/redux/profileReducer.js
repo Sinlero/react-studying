@@ -1,5 +1,6 @@
-const ADD_POST = "ADD-POST";
-const CHANGE_NEW_POST_TEXT = "CHANGE-NEW-POST-TEXT";
+const ADD_POST = "ADD_POST";
+const CHANGE_NEW_POST_TEXT = "CHANGE_NEW_POST_TEXT";
+const LIKE_POST = "LIKE_POST";
 
 let initialState = {
         postsData: [
@@ -14,7 +15,7 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
-                id: 5,
+                id: 4,
                 name: "Admin",
                 message: state.newPostText,
                 likes: 0
@@ -24,6 +25,13 @@ const profileReducer = (state = initialState, action) => {
             return state;
         case CHANGE_NEW_POST_TEXT:
             state.newPostText = action.newText;
+            return state;
+        case LIKE_POST:
+            debugger;
+            let likedPost = state.postsData.find(post => post.id === action.id);
+            likedPost.likes++;
+            state.postsData.splice(action.id - 1, 1);
+            state.postsData.push(likedPost);
             return state;
         default:
             return state;
@@ -40,6 +48,13 @@ export const changeNewPostTextActionCreator = (text) => {
     return {
         type: CHANGE_NEW_POST_TEXT,
         newText: text
+    }
+}
+
+export const likePostActionCreator = (id) => {
+    return {
+        type: LIKE_POST,
+        id: id
     }
 }
 
