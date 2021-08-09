@@ -15,7 +15,7 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
-                id: 4,
+                id: state.postsData.length + 1,
                 name: "Admin",
                 message: state.newPostText,
                 likes: 0
@@ -27,11 +27,8 @@ const profileReducer = (state = initialState, action) => {
             state.newPostText = action.newText;
             return state;
         case LIKE_POST:
-            debugger;
             let likedPost = state.postsData.find(post => post.id === action.id);
             likedPost.likes++;
-            state.postsData.splice(action.id - 1, 1);
-            state.postsData.push(likedPost);
             return state;
         default:
             return state;
