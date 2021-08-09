@@ -1,6 +1,12 @@
 import style from "./Post.module.css";
+import {likePostActionCreator} from "../../../../redux/profileReducer";
 
 function Post(props) {
+
+    let addLike = () => {
+        props.dispatch(likePostActionCreator(props.id));
+    }
+
     return (
         <div className={style.post}>
             <img className={style.img}
@@ -16,7 +22,7 @@ function Post(props) {
                 <span>{props.likes} people likes this post</span>
             </div>
             <div className={style.like}>
-                <button>Like 👍</button>
+                <button onClick={addLike}>Like 👍</button>
             </div>
         </div>
     );
