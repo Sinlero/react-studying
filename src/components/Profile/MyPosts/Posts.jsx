@@ -20,9 +20,9 @@ function Posts(props) {
 
     return (
         <div className={style.content}>
-            my posts
+            <h2>My posts</h2>
             <div>
-                <h2>New post</h2>
+                <h3>New post</h3>
                 <div className={style.createPost}>
                     <textarea onChange={onChange} value={props.newPostText}
                               placeholder="Enter you post text"></textarea>
