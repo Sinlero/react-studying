@@ -5,11 +5,9 @@ import React from "react";
 
 function Posts(props) {
 
-    debugger;
-    let PostsElements = props.posts.map(post => <Post id={post.id} text={post.message} name={post.name}
+    let PostsElements = props.posts.map(post => <Post key={post.id} id={post.id} text={post.message} name={post.name}
                                                       likes={post.likes}
                                                       likeCallback={props.likePost}/>);
-
     let onAddPost = () => {
         props.addPost();
     };
