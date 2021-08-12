@@ -20,6 +20,9 @@ function Menu(props) {
             <div className={style.link} >
                 <NavLink to="/settings" activeClassName={style.active}>Settings</NavLink>
             </div>
+            <div className={style.link}>
+                <NavLink to="/users" activeClassName={style.active}>Find Users</NavLink>
+            </div>
             <div>
                 <FriendsContainer/>
             </div>
