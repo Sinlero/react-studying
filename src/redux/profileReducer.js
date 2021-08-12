@@ -14,31 +14,41 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            let newState = {...state};
-            newState.postsData = [...state.postsData];
-            let newPost = {
-                id: newState.postsData.length + 1,
-                name: "Admin",
-                message: newState.newPostText,
-                likes: 0
-            };
-            newState.postsData.push(newPost);
-            newState.newPostText = "";
-            return newState;
+            return {
+                postsData: [...state.postsData,
+                    {
+                        id: [...state.postsData].length + 1,
+                        name: "Admin",
+                        message: {...state}.newPostText,
+                        likes: 0
+                    }],
+                newPostText: ""
+            }
         }
         case CHANGE_NEW_POST_TEXT: {
             return {
                 ...state,
-                newPostText: action.newText};
+                newPostText: action.newText
+            };
         }
+        // NOT WORK
+        // case LIKE_POST: {
+        //     let newState = [...state.postsData];
+        //     let likedPost = newState.find(post => post.id === action.id);
+        //     likedPost.likes++;
+        //     return newState;
+        // }
         case LIKE_POST: {
-            let newState = {...state};
-            let data = [...newState.postsData];
-            console.log(newState);
-            console.log(data);
-            let likedPost = data.find(post => post.id === action.id);
-            likedPost.likes++;
-            return newState;
+            debugger;
+            return {
+                ...state,
+                postsData: state.postsData.map(post => {
+                    if (post.id === action.id) {
+                        return {...post, likes: ++post.likes};
+                    }
+                    return post;
+                })
+            }
         }
         default:
             return state;
