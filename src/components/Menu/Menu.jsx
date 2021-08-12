@@ -1,6 +1,6 @@
 import style from "./Menu.module.css";
 import {NavLink} from "react-router-dom";
-import Friends from "./Friends/Friends";
+import FriendsContainer from "./Friends/FriendsContainer";
 
 function Menu(props) {
     return(
@@ -21,7 +21,7 @@ function Menu(props) {
                 <NavLink to="/settings" activeClassName={style.active}>Settings</NavLink>
             </div>
             <div>
-                <Friends friends={props.friends}/>
+                <FriendsContainer/>
             </div>
         </nav>
     );
