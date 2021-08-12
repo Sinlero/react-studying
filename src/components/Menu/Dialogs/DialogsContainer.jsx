@@ -6,8 +6,8 @@ import Message from "./Message/Message";
 
 let mapStateToProps = (state) => {
     return {
-        dialogsElements: state.dialogsPage.dialogsData.map(dialog => <DialogItem id={dialog.id} name={dialog.name} avatar={dialog.avatar}/>),
-        messagesElements: state.dialogsPage.messagesData.map(message => <Message message={message.message}/>),
+        dialogsElements: state.dialogsPage.dialogsData.map(dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name} avatar={dialog.avatar}/>),
+        messagesElements: state.dialogsPage.messagesData.map(message => <Message key={message.id} message={message.message}/>),
         newMessageText: state.dialogsPage.newMessageText
     }
 }
