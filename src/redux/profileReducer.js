@@ -42,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
             debugger;
             return {
                 ...state,
-                postsData: state.postsData.map(post => {
+                postsData: [...state.postsData].map(post => {
                     if (post.id === action.id) {
                         return {...post, likes: ++post.likes};
                     }
