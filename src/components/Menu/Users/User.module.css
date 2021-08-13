@@ -1,4 +1,18 @@
+.usersItem {
+    border-style: solid;
+    border-color: black;
+    border-radius: 100px;
+    border-width: 1px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: end;
+    padding-bottom: 30px;
+}
+
 .avatar img {
     border-radius: 90px;
-    width: 150px;
+    width: 100px;
 }
