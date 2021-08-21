@@ -1,47 +1,14 @@
-import avatar1 from "../avatars/avatar1.jpg";
-import avatar2 from "../avatars/avatar2.jpg";
-import avatar3 from "../avatars/avatar3.jpg";
-import avatar from "../avatars/reactLogo.png";
-
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS = "SET_TOTAL_USERS";
 
 let initialState = {
-    users: [
-        // {
-        //     id: 1,
-        //     fullName: "Andrey",
-        //     avatar: avatar,
-        //     status: "Java proger",
-        //     location: {city: "BlagaVegas", country: "Russia"},
-        //     followed: false
-        // },
-        // {
-        //     id: 2,
-        //     fullName: "Ilon Mask",
-        //     avatar: avatar1,
-        //     status: "Tesla top",
-        //     location: {city: "Ontario", country: "USA"},
-        //     followed: true
-        // },
-        // {
-        //     id: 3,
-        //     fullName: "Jokeeeer",
-        //     avatar: avatar2,
-        //     status: "ha-ha-ha-ha",
-        //     location: {city: "Moskow", country: "Russia"},
-        //     followed: false
-        // },
-        // {
-        //     id: 4,
-        //     fullName: "JavaScrpiteaser",
-        //     avatar: avatar3,
-        //     status: "ya tupoi",
-        //     location: {city: "Kiev", country: "Ukraine"},
-        //     followed: true
-        // }
-    ]
+    users: [],
+    pageSize: 3,
+    totalRecords: 0,
+    currentPage: 1
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -69,7 +36,19 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
+            }
+        }
+        case SET_CURRENT_PAGE: {
+            return {
+                ...state,
+                currentPage: action.pageNumber
+            }
+        }
+        case SET_TOTAL_USERS: {
+            return {
+                ...state,
+                totalRecords: action.totalRecords
             }
         }
         default:
@@ -95,7 +74,21 @@ export const unfollowAC = (id) => {
 export const setUsersAC = (users) => {
     return {
         type: SET_USERS,
-        users
+        users: users
+    }
+}
+
+export const setCurrentPageAC = (pageNumber) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        pageNumber: pageNumber
+    }
+}
+
+export const setTotalUsersCountsAC = (totalUsersCount) => {
+    return {
+        type: SET_TOTAL_USERS,
+        totalRecords: totalUsersCount
     }
 }
 
