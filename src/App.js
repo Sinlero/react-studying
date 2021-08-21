@@ -8,6 +8,7 @@ import Music from "./components/Menu/Music/Music";
 import News from "./components/Menu/News/News";
 import DialogsContainer from "./components/Menu/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Menu/Users/UsersContainer";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
     return (

@@ -16,3 +16,27 @@
     border-radius: 90px;
     width: 100px;
 }
+
+.pages {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+.selectedPage {
+    border: 1px solid;
+    padding: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.page {
+    color: darkgray;
+    border: 1px solid;
+    padding: 10px;
+}
+.page:hover {
+    color: blue;
+    cursor: pointer;
+}
