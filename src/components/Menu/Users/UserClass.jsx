@@ -2,7 +2,7 @@ import React from "react";
 import style from "./User.module.css";
 import axios from "axios";
 import reactLogo from "../../../avatars/reactLogo.png";
-import {Descriptions, Button, Avatar} from "antd";
+import {Descriptions, Button, Avatar, Pagination} from "antd";
 
 
 class UserClass extends React.Component {
@@ -12,7 +12,6 @@ class UserClass extends React.Component {
         axios.get(`http://192.168.202.104:8081/users?page=${this.props.currentPage}&limit=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.users);
             this.props.setTotalUsersCounts(response.data.totalRecords);
-
         });
     }
 
@@ -43,7 +42,6 @@ class UserClass extends React.Component {
 
     render() {
         let pagesCount = Math.ceil(this.props.totalRecords / this.props.pageSize);
-
         // let pages = [];
         //
         // for (let i = 1; i <= pagesCount; i++) {
@@ -51,6 +49,9 @@ class UserClass extends React.Component {
         // }
         return (
             <div>
+                <div className={style.pagination}>
+                    <Pagination defaultCurrent={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
+                </div>
                 {/*{this.paging()}*/}
                 {/*<div className={style.pages}>*/}
                 {/*    {pages.map(page => {*/}
@@ -73,6 +74,9 @@ class UserClass extends React.Component {
                                 ? <Button type="primary"  onClick={() => this.props.unfollow(user.id)} value="Unfollow">Unfollow</Button>
                                 : <Button type="primary" onClick={() => this.props.follow(user.id)} value="Follow">Follow</Button>}
                     </div>)}
+                <div className={style.pagination}>
+                    <Pagination defaultCurrent={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
+                </div>
             </div>)
     }
 }
