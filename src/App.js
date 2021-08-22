@@ -8,25 +8,34 @@ import Music from "./components/Menu/Music/Music";
 import News from "./components/Menu/News/News";
 import DialogsContainer from "./components/Menu/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Menu/Users/UsersContainer";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import style from'./App.less';
+import {Layout} from 'antd';
+
+const {Sider, Content} = Layout;
 
 function App(props) {
     return (
         <BrowserRouter>
-            <div className="app-wrapper">
-                <Header/>
-                <Menu/>
-                <div className="app-wrapper-content">
-                    <Route path="/dialogs"
-                           render={() => <DialogsContainer/>}/>
-                    <Route path="/profile"
-                           render={() => <Profile/>}/>
-                    <Route path="/news" render={() => <News/>}/>
-                    <Route path="/music" render={() => <Music/>}/>
-                    <Route path="/settings" render={() => <Settings/>}/>
-                    <Route path="/users" render={() => <UsersContainer/>}/>
+            <Layout>
+                <div className="app-wrapper">
+                    <Layout.Header><Header/></Layout.Header>
+                    <Layout>
+                        <Sider className={style.sider}><Menu/></Sider>
+                        <Content>
+                            <div className="app-wrapper-content">
+                                <Route path="/dialogs"
+                                       render={() => <DialogsContainer/>}/>
+                                <Route path="/profile"
+                                       render={() => <Profile/>}/>
+                                <Route path="/news" render={() => <News/>}/>
+                                <Route path="/music" render={() => <Music/>}/>
+                                <Route path="/settings" render={() => <Settings/>}/>
+                                <Route path="/users" render={() => <UsersContainer/>}/>
+                            </div>
+                        </Content>
+                    </Layout>
                 </div>
-            </div>
+            </Layout>
         </BrowserRouter>
     );
 }

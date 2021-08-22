@@ -1,5 +1,17 @@
+.createPost {
+    margin-top: 15px;
+    background-color: white;
+    padding: 25px;
+}
+
 .createPost textarea {
-    width: 900px;
-    height: 100px;
     font-size: 16px;
+}
+
+.postButton {
+    margin-top: 10px;
+}
+
+.content {
+    margin: 10px;
 }

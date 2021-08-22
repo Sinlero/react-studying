@@ -7,9 +7,15 @@
 
 .avatar .img {
     border-radius: 150px;
-    width: 80%;
+    width: 250px;
 }
 
 .header img {
     width: 95%;
+}
+
+.profileInfo {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
 }

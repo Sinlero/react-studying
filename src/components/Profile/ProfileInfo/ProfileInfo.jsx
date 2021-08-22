@@ -3,7 +3,7 @@ import AboutMe from "./AmoutMe/AboutMe";
 
 function ProfileInfo() {
     return (
-        <div>
+        <div className={style.profileInfo}>
             <div className={style.header}>
                 <img src="https://vastphotos.com/files/uploads/photos/10185/japan-mountain-landscape-m.jpg"
                      alt="header"/>

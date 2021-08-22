@@ -1,42 +1,5 @@
-.usersItem {
-    border-style: solid;
-    border-color: black;
-    border-radius: 100px;
-    border-width: 1px;
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    justify-items: center;
-    align-items: end;
-    padding-bottom: 30px;
-}
-
-.avatar img {
-    border-radius: 90px;
-    width: 100px;
-}
-
-.pages {
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-
-}
-
-.selectedPage {
-    border: 1px solid;
+.userItem {
+    background-color: white;
     padding: 10px;
-    font-weight: bolder;
-    cursor: pointer;
-}
-
-.page {
-    color: darkgray;
-    border: 1px solid;
-    padding: 10px;
-}
-.page:hover {
-    color: blue;
-    cursor: pointer;
+    margin: 25px;
 }

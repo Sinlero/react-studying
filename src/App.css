@@ -1,23 +1,4 @@
-.app-wrapper {
-  display: grid;
-  width: 1200px;
-  margin: 0 auto;
-  grid-template-areas:
-  "h h"
-  "n c";
-  grid-template-rows: 100px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 16px;
+@import '~antd/dist/antd.css';
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-.app-wrapper-content {
-  grid-area: c;
-  background-color: white;
-  padding: 10px;
-}
+

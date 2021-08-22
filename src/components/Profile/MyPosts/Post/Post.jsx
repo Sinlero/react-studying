@@ -1,4 +1,6 @@
 import style from "./Post.module.css";
+import {Button, Tooltip} from "antd";
+import {LikeOutlined} from "@ant-design/icons";
 
 function Post(props) {
 
@@ -21,7 +23,10 @@ function Post(props) {
                 <span>{props.likes} people likes this post</span>
             </div>
             <div className={style.like}>
-                <button onClick={likePost}>Like 👍</button>
+                <Tooltip placement={"bottom"} title={"Like"}>
+                <Button onClick={likePost} type="primary" shape="circle" icon={<LikeOutlined />}/>
+                </Tooltip>
+                {/*<Button onClick={likePost}>👍</Button>*/}
             </div>
         </div>
     );
