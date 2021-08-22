@@ -14,45 +14,41 @@ import {
 function Menu(props) {
 
     return(
-        <nav>
             <AntMenu mode="inline">
-                <AntMenu.Item key="1" icon={<HomeTwoTone />}>
+                <AntMenu.Item key="Profile" icon={<HomeTwoTone />}>
                     <div>
                         <NavLink to="/profile">Profile</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.Item key="2" icon={<MessageTwoTone />}>
+                <AntMenu.Item key="Messages" icon={<MessageTwoTone />}>
                     <div>
                         <NavLink to="/dialogs">Messages</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.Item key="3" icon={<FileTextTwoTone />}>
+                <AntMenu.Item key="News" icon={<FileTextTwoTone />}>
                     <div>
                         <NavLink to="/news">News</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.Item key="4" icon={<CustomerServiceTwoTone />}>
+                <AntMenu.Item key="Music" icon={<CustomerServiceTwoTone />}>
                     <div>
                         <NavLink to="/music">Music</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.Item key="5" icon={<SettingTwoTone />}>
+                <AntMenu.Item key="Settings" icon={<SettingTwoTone />}>
                     <div>
                         <NavLink to="/settings">Settings</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.Item key="6" icon={<SecurityScanTwoTone />}>
+                <AntMenu.Item key="Users" icon={<SecurityScanTwoTone />}>
                     <div>
                         <NavLink to="/users">Find Users</NavLink>
                     </div>
                 </AntMenu.Item>
-                <AntMenu.SubMenu key="7" popupOffset={[100,100]} title={"Friends"} icon={<SmileTwoTone />}>
-                    <div>
+                <AntMenu.SubMenu key="Friends" title={"Friends"} icon={<SmileTwoTone />}>
                         <FriendsContainer/>
-                    </div>
                 </AntMenu.SubMenu>
             </AntMenu>
-        </nav>
     );
 }
 
