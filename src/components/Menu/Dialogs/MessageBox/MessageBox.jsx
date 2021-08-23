@@ -1,5 +1,7 @@
 import style from "./MessageBox.module.css"
 import React from "react";
+import {Button, Col, Input, Row} from "antd";
+import {SendOutlined} from "@ant-design/icons";
 
 function MessageBox(props) {
 
@@ -14,8 +16,10 @@ function MessageBox(props) {
 
     return (
       <div className={style.box}>
-          <textarea onChange={changeText} value={props.defaultText} placeholder="Enter you message"></textarea>
-          <button onClick={sendMessage}>Send</button>
+          <Row gutter={[8, 8]}>
+              <Col span={20} > <Input.TextArea autoSize={true} onChange={changeText} placeholder="Enter you message" value={props.defaultText}/> </Col>
+              <Col span={4} ><Button className={style.postButton} type="primary" onClick={sendMessage} icon={<SendOutlined />}>Send</Button></Col>
+          </Row>
       </div>
     );
 }
