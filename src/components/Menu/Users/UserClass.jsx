@@ -9,7 +9,7 @@ class UserClass extends React.Component {
 
     //192.168.202.104:8081 | localhost:8081
     componentDidMount() {
-        axios.get(`http://192.168.202.104:8081/users?page=${this.props.currentPage}&limit=${this.props.pageSize}`).then(response => {
+        axios.get(`http://localhost:8081/users?page=${this.props.currentPage}&limit=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.users);
             this.props.setTotalUsersCounts(response.data.totalRecords);
         });
@@ -17,49 +17,21 @@ class UserClass extends React.Component {
 
     onPageClick = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        axios.get(`http://192.168.202.104:8081/users?page=${pageNumber}&limit=${this.props.pageSize}`).then(response => {
+        axios.get(`http://localhost:8081/users?page=${pageNumber}&limit=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.users);
         });
     }
 
-    // paging = () => {
-    //     let active = 2;
-    //     let items = [];
-    //     for (let number = 1; number <= 5; number++) {
-    //         items.push(
-    //             <Pagination.Item key={number} active={number === active}>
-    //                 {number}
-    //             </Pagination.Item>,
-    //         );
-    //     }
-    //     return (
-    //         <div>
-    //             <Pagination size="sm">{items}</Pagination>
-    //             <Button variant="primary">Primary</Button>{' '}
-    //         </div>
-    //     )
-    // }
 
     render() {
         let pagesCount = Math.ceil(this.props.totalRecords / this.props.pageSize);
-        // let pages = [];
-        //
-        // for (let i = 1; i <= pagesCount; i++) {
-        //     pages.push(i);
-        // }
+
         return (
             <div>
                 <div className={style.pagination}>
-                    <Pagination defaultCurrent={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
+                    <Pagination current={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
                 </div>
-                {/*{this.paging()}*/}
-                {/*<div className={style.pages}>*/}
-                {/*    {pages.map(page => {*/}
-                {/*            return <span className={this.props.currentPage === page ? style.selectedPage : style.page}*/}
-                {/*                         onClick={(event => {this.onPageClick(page)})}>{page}</span>*/}
-                {/*        }*/}
-                {/*    )}*/}
-                {/*</div>*/}
+
                 {this.props.users.map(user =>
                     <div className={style.userItem} key={user.id}>
                             <Avatar size={64} src={user.photos !== null ? user.photos : reactLogo} alt="avatar" />
@@ -75,7 +47,7 @@ class UserClass extends React.Component {
                                 : <Button type="primary" onClick={() => this.props.follow(user.id)} value="Follow">Follow</Button>}
                     </div>)}
                 <div className={style.pagination}>
-                    <Pagination defaultCurrent={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
+                    <Pagination current={this.props.currentPage} total={pagesCount * 10} onChange={this.onPageClick}/>
                 </div>
             </div>)
     }
