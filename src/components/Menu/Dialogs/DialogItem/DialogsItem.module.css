@@ -9,7 +9,25 @@
     background-color: white;
 }
 
+.dialogItem{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
+}
+
+.name{
+    margin-top: 20px;
+}
+
+.dialogItem :hover{
+    cursor: pointer;
+}
+
+
 .avatar {
+    margin-top: 10px;
+    margin-left: 15px;
     width: 50px;
     border-radius: 50px;
 }
