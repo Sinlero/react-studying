@@ -1,40 +1,36 @@
 import React from "react";
 import style from "./User.module.css";
 import reactLogo from "../../../avatars/reactLogo.png"
-import axios from "axios";
+import {Avatar, Button, Descriptions, Pagination} from "antd";
 
 function Users(props) {
 
-    function getUsers() {
-        if (props.users.length === 0) {
-            axios.get("http://localhost:8080/users").then(response => {
-                props.setUsers(response.data);
-            });
-        }
-    }
+    let pagesCount = Math.ceil(props.totalRecords / props.pageSize);
 
     return (
         <div>
-            <button onClick={getUsers}>Get Users</button>
+            <div className={style.pagination}>
+                <Pagination current={props.currentPage} total={pagesCount * 10} onChange={props.onPageClick}/>
+            </div>
+
             {props.users.map(user =>
-                <div className={style.usersItem} key={user.id}>
-
-                    <div className={style.avatar}>
-                        <img src={user.photos !== "null" ? user.photos : reactLogo} alt="ava"/>
-                    </div>
-                    <div>Status: {user.status}</div>
-                    <div>{user.name}</div>
-                    <div>{"user.location.city"}</div>
-                    <div>
-                        {user.followed
-                            ? <button onClick={() => props.unfollow(user.id)}>Unfollow</button>
-                            : <button onClick={() => props.follow(user.id)}>Follow</button>}
-                    </div>
-                    <div>{"user.location.country"}</div>
-
+                <div className={style.userItem} key={user.id}>
+                    <Avatar size={64} src={user.photos !== null ? user.photos : reactLogo} alt="avatar" />
+                    <Descriptions title="User Info">
+                        <Descriptions.Item label="User Name" span={3}>{user.name}</Descriptions.Item>
+                        <Descriptions.Item label="Status" span={3}>{user.status}</Descriptions.Item>
+                        <Descriptions.Item label="Live" >{"user.location.city"}</Descriptions.Item>
+                        <Descriptions.Item label="Address" >{"user.location.address"}</Descriptions.Item>
+                        <Descriptions.Item label="Country" >{"user.location.country"}</Descriptions.Item>
+                    </Descriptions>
+                    {user.followed
+                        ? <Button type="primary"  onClick={() => props.unfollow(user.id)} value="Unfollow">Unfollow</Button>
+                        : <Button type="primary" onClick={() => props.follow(user.id)} value="Follow">Follow</Button>}
                 </div>)}
-        </div>
-    )
+            <div className={style.pagination}>
+                <Pagination current={props.currentPage} total={pagesCount * 10} onChange={props.onPageClick}/>
+            </div>
+        </div>)
 }
 
 export default Users;
