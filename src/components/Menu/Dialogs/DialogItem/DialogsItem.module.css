@@ -32,3 +32,6 @@
     border-radius: 50px;
 }
 
+.active .dialogsItems{
+    background-color: #e3d1fa;
+}
