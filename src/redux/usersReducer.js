@@ -4,6 +4,7 @@ const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS = "SET_TOTAL_USERS";
 const SET_FETCHING = "SET_FETCHING";
+const SET_PAGE_SIZE = "SET_PAGE_SIZE";
 
 let initialState = {
     users: [],
@@ -45,6 +46,12 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPage: action.pageNumber
+            }
+        }
+        case SET_PAGE_SIZE: {
+            return {
+                ...state,
+                pageSize: action.pageSize
             }
         }
         case SET_TOTAL_USERS: {
@@ -90,6 +97,13 @@ export const setCurrentPage = (pageNumber) => {
     return {
         type: SET_CURRENT_PAGE,
         pageNumber: pageNumber
+    }
+}
+
+export const setPageSize = (pageSize) => {
+    return {
+        type: SET_PAGE_SIZE,
+        pageSize: pageSize
     }
 }
 
