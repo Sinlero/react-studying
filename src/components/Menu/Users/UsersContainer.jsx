@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {
     follow,
     setCurrentPage,
-    setFetching,
+    setFetching, setPageSize,
     setTotalUsersCounts,
     setUsers,
     unfollow
@@ -16,33 +16,39 @@ import {LoadingOutlined} from "@ant-design/icons";
 
 class UsersContainer extends React.Component {
 
-    //192.168.202.104:8081 | localhost:8081
     componentDidMount() {
+        this.getRequest(this.props.currentPage, this.props.pageSize);
+    }
+
+    getRequest = (page, pageSize) => {
         this.props.setFetching(true);
-        axios.get(`http://localhost:8081/users?page=${this.props.currentPage}&limit=${this.props.pageSize}`).then(response => {
+        //192.168.202.104:8081 | localhost:8081
+        axios.get(`http://localhost:8081/users?page=${page}&limit=${pageSize}`).then(response => {
             this.props.setFetching(false);
             this.props.setUsers(response.data.users);
             this.props.setTotalUsersCounts(response.data.totalRecords);
         });
     }
 
-    onPageClick = (pageNumber) => {
-        this.props.setFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        axios.get(`http://localhost:8081/users?page=${pageNumber}&limit=${this.props.pageSize}`).then(response => {
-            this.props.setFetching(false);
-            this.props.setUsers(response.data.users);
-        });
+    onPageClick = (page, pageSize) => {
+        this.props.setCurrentPage(page);
+        this.props.setPageSize(pageSize);
+        this.getRequest(page, pageSize);
+    }
+
+    onChangePageSize = (current, size) => {
+        this.props.setCurrentPage(current);
+        this.props.setPageSize(size);
     }
 
     renderUsers = () => {
         return (
             <Users totalRecords={this.props.totalRecords} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} onPageClick={this.onPageClick}
+                   onChangePageSize={this.onChangePageSize}
                    users={this.props.users} follow={this.props.follow} unfollow={this.props.unfollow}
                    isFetching={this.props.isFetching}/>)
     }
-
 
     render() {
         return (
@@ -69,5 +75,5 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     follow, unfollow, setUsers,
-    setCurrentPage, setTotalUsersCounts, setFetching
+    setCurrentPage, setPageSize,setTotalUsersCounts, setFetching
 })(UsersContainer)
