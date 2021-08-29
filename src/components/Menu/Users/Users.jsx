@@ -5,12 +5,11 @@ import {Avatar, Button, Descriptions, Pagination} from "antd";
 
 function Users(props) {
 
-    let pagesCount = Math.ceil(props.totalRecords / props.pageSize);
-
     return (
         <div>
             <div className={style.pagination}>
-                <Pagination current={props.currentPage} total={pagesCount * 10} onChange={props.onPageClick}/>
+                <Pagination current={props.currentPage} pageSize={props.pageSize} total={props.totalRecords}
+                            onChange={props.onPageClick} onShowSizeChange={props.onChangePageSize} showSizeChanger={true} pageSizeOptions={[2,3,4]}/>
             </div>
 
             {props.users.map(user =>
@@ -28,7 +27,8 @@ function Users(props) {
                         : <Button type="primary" onClick={() => props.follow(user.id)} value="Follow">Follow</Button>}
                 </div>)}
             <div className={style.pagination}>
-                <Pagination current={props.currentPage} total={pagesCount * 10} onChange={props.onPageClick}/>
+                <Pagination current={props.currentPage} pageSize={props.pageSize} total={props.totalRecords}
+                            onChange={props.onPageClick} onShowSizeChange={props.onChangePageSize} showSizeChanger={true} pageSizeOptions={[2,3,4]}/>
             </div>
         </div>)
 }
