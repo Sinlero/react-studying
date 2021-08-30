@@ -4,5 +4,29 @@
 }
 
 .messages {
+    background-color: white;
+    background-image: url(https://theabbie.github.io/blog/assets/official-whatsapp-background-image.jpg);
     padding: 10px;
+    height: 700px;
+    width: 700px;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+
+.messages::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+.messages::-webkit-scrollbar-track {
+    background: darkgrey;        /* color of the tracking area */
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: grey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid darkgrey;  /* creates padding around scroll thumb */
+}
+
+.messageBoxLayout {
+    background-color: red;
 }
