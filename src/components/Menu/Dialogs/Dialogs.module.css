@@ -4,6 +4,7 @@
 }
 
 .messages {
+    margin: 10px;
     background-color: white;
     background-image: url(https://theabbie.github.io/blog/assets/official-whatsapp-background-image.jpg);
     padding: 10px;
