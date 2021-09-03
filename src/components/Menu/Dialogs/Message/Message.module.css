@@ -1,7 +1,9 @@
 .message {
-    background-color: #e3d1fa;
+    background-color: #D7BBF0;
     margin-bottom: 10px;
     width: fit-content;
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid purple;
+    white-space: pre-wrap;
 }
