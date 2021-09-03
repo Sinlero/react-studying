@@ -2,7 +2,17 @@
     color: black;
     background-color: white;
     margin: 15px;
-    padding: 10px;
+    padding: 15px;
+    white-space: pre-wrap;
+    font-size: 16px;
+}
+
+.text {
+    margin-bottom: 15px;
+}
+
+.author {
+    margin-bottom: 15px;
 }
 
 .post .img {
