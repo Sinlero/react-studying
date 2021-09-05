@@ -1,7 +1,6 @@
 import './App.css';
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
-import Profile from "./components/Profile/Profile";
 import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./components/Menu/Settings/Settings";
 import Music from "./components/Menu/Music/Music";
