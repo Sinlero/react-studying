@@ -23,7 +23,7 @@ class UsersContainer extends React.Component {
     getRequest = (page, pageSize) => {
         this.props.setFetching(true);
         //192.168.202.104:8081 | localhost:8081
-        axios.get(`http://localhost:8081/users?page=${page}&limit=${pageSize}`).then(response => {
+        axios.get(`http://localhost:8081/api/1.0/users?page=${page}&limit=${pageSize}`).then(response => {
             this.props.setFetching(false);
             this.props.setUsers(response.data.users);
             this.props.setTotalUsersCounts(response.data.totalRecords);
