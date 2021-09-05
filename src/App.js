@@ -10,6 +10,7 @@ import DialogsContainer from "./components/Menu/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Menu/Users/UsersContainer";
 import style from'./App.less';
 import {Layout} from 'antd';
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const {Sider, Content} = Layout;
 
@@ -26,7 +27,7 @@ function App(props) {
                                 <Route path="/dialogs"
                                        render={() => <DialogsContainer/>}/>
                                 <Route path="/profile"
-                                       render={() => <Profile/>}/>
+                                       render={() => <ProfileContainer/>}/>
                                 <Route path="/news" render={() => <News/>}/>
                                 <Route path="/music" render={() => <Music/>}/>
                                 <Route path="/settings" render={() => <Settings/>}/>
