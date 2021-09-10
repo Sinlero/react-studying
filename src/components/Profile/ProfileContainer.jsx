@@ -3,12 +3,13 @@ import Profile from "./Profile";
 import axios from "axios";
 import {connect} from "react-redux";
 import {addPost, changeNewPostText, likePost, setUserProfile} from "../../redux/profileReducer";
+import {withRouter} from "react-router-dom";
 
-class ProfileContainer extends React.Component{
+class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        //192.168.202.104:8081 | localhost:8081
-        axios.get(`http://localhost:8081/api/1.0/users/profile/2`).then(response => {
+        let id = this.props.match.params.id ? this.props.match.params.id : 1;
+        axios.get(`http://localhost:8081/api/1.0/users/profile/${id}`).then(response => {
             this.props.setUserProfile(response.data);
         });
     }
@@ -28,4 +29,11 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {setUserProfile, addPost, changeNewPostText, likePost})(ProfileContainer);
+let ProfileContainerWithRouter = withRouter(ProfileContainer);
+
+export default connect(mapStateToProps, {
+    setUserProfile,
+    addPost,
+    changeNewPostText,
+    likePost
+})(ProfileContainerWithRouter);
